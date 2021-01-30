@@ -20,18 +20,16 @@ class Price extends AbstractField
 
     public function __construct(string $amount, string $iso4210Currency)
     {
-        if (!preg_match('/\d+(\.\d{2})?/', $amount)) {
+        if (!preg_match('/^\d+(\.\d{2})?$/', $amount)) {
             throw new \InvalidArgumentException('Amount must be number with "." as decimal point');
         }
 
-        if (!preg_match('/[A-Z]{3]/', $iso4210Currency)) {
-            throw new \InvalidArgumentException('Amount must be number with "." as decimal point');
+        if (!preg_match('/[A-Z]{3}/', $iso4210Currency)) {
+            throw new \InvalidArgumentException('Currency must be alpha 3 by ISO 4210');
         }
 
         $this->amount = $amount;
         $this->iso4210Currency = $iso4210Currency;
-
-        $this->__construct($amount . ' ' . $iso4210Currency);
     }
 
     /**

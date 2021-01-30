@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Sokil\Merchant\ProductFeed\Formatter\Strategy;
+namespace Sokil\Merchant\ProductFeed\Formatter;
 
 use Sokil\Merchant\ProductFeed\Model\Product;
 

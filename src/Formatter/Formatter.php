@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Sokil\Merchant\ProductFeed\Formatter;
 
-use Sokil\Merchant\ProductFeed\Formatter\Strategy\ProductNormaliserInterface;
 use Sokil\Merchant\ProductFeed\Model\Feed;
 
 class Formatter
@@ -37,12 +36,12 @@ class Formatter
         $this->feedEncoders = $encoders;
     }
 
-    public function format(Feed $feed, string $marketingPlatform, string $format): string
+    public function format(Feed $feed, string $marketingPlatform, string $format): \Generator
     {
         $feedNormaliser = $this->locateProductNormaliser($marketingPlatform);
         $feedEncoder = $this->locateFeedEncoder($marketingPlatform, $format);
 
-        return $feedEncoder->encode($feed, $feedNormaliser);
+        yield from $feedEncoder->encode($feed, $feedNormaliser);
     }
 
     private function locateProductNormaliser(string $marketingPlatform): ProductNormaliserInterface

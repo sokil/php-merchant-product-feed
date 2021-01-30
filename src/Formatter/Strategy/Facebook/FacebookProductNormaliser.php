@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Sokil\Merchant\ProductFeed\Normaliser\Facebook;
+namespace Sokil\Merchant\ProductFeed\Formatter\Strategy\Facebook;
 
-use Sokil\Merchant\ProductFeed\Formatter\Strategy\ProductNormaliserInterface;
+use Sokil\Merchant\ProductFeed\Formatter\ProductNormaliserInterface;
 use Sokil\Merchant\ProductFeed\Model\Product;
 use Sokil\Merchant\ProductFeed\Model\ProductField\Availability;
+use Sokil\Merchant\ProductFeed\Model\ProductField\Condition;
 
 /**
  * @link https://developers.facebook.com/docs/commerce-platform/catalog/fields#additional-fields
@@ -15,6 +16,15 @@ class FacebookProductNormaliser implements ProductNormaliserInterface
 {
     private const AVAILABILITY_MAP = [
         Availability::IN_STOCK => 'in stock',
+        Availability::AVAILABLE_FOR_ORDER => 'available for order',
+        Availability::OUT_OF_STOCK => 'out of stock',
+        Availability::DISCONTINUED => 'discontinued',
+    ];
+
+    private const CONDITION_MAP = [
+        Condition::NEW => 'new',
+        Condition::REFURBISHED => 'refurbished',
+        Condition::USED => 'used',
     ];
 
     public function normalise(Product $product): array
@@ -33,7 +43,12 @@ class FacebookProductNormaliser implements ProductNormaliserInterface
 
         $availability = self::AVAILABILITY_MAP[$product->getAvailability()->getValue()] ?? null;
         if (empty($availability)) {
+            throw new \InvalidArgumentException('Unknown availability specified');
+        }
 
+        $condition = self::CONDITION_MAP[$product->getCondition()->getValue()] ?? null;
+        if (empty($condition)) {
+            throw new \InvalidArgumentException('Unknown condition specified');
         }
 
         $normalisedProduct = [
@@ -41,7 +56,14 @@ class FacebookProductNormaliser implements ProductNormaliserInterface
             'title' => $product->getTitle(),
             'description' => $product->getDescription(),
             'availability' => $availability,
+            'condition' => $condition,
+            'price' => $product->getPrice()->getAmount() . ' ' . $product->getPrice()->getIso4210Currency(),
+            'link' => $product->getLink()->getValue(),
+            'image_link' => $product->getImageLink()->getValue(),
+            'brand' => $product->getBrand(),
         ];
+
+        return $normalisedProduct;
     }
 
     public function isSupported(string $marketingPlatform): bool

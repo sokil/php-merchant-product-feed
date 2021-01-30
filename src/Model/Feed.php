@@ -37,7 +37,7 @@ class Feed implements \Countable, \Iterator
 
     public function valid()
     {
-        return key($this->products) === null;
+        return key($this->products) !== null;
     }
 
     public function rewind()
