@@ -29,6 +29,6 @@
     "scripts": {
         "test": "./vendor/bin/phpunit",
         "cover": "./vendor/bin/phpunit --coverage-clover ./build/logs/clover.xml",
-        "coveralls": "./vendor/bin/php-coveralls -v",
+        "coveralls": "./vendor/bin/php-coveralls -v"
     }
 }
