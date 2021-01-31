@@ -6,7 +6,8 @@
         "php": ">=7.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "php-coveralls/php-coveralls": "^2.1",
     },
     "license": "MIT",
     "authors": [
@@ -26,6 +27,8 @@
         }
     },
     "scripts": {
-        "test": "./vendor/bin/phpunit"
+        "test": "./vendor/bin/phpunit",
+        "cover": "./vendor/bin/phpunit --coverage-clover ./build/logs/clover.xml",
+        "coveralls": "./vendor/bin/php-coveralls -v",
     }
 }
