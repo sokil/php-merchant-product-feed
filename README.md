@@ -12,7 +12,7 @@ Builder of Facebook and Google product feeds
 
 ### Useful links
 
-* [Goole Merchant Center / Catalog](https://support.google.com/merchants/answer/7052112?visit_id=637475497990766300-2364174748&hl=ru&rd=1)
+* [Google Merchant Center / Catalog](https://support.google.com/merchants/answer/7052112?visit_id=637475497990766300-2364174748&hl=ru&rd=1)
 
 ### Useage
 
