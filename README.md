@@ -2,9 +2,9 @@
 
 Builder of Facebook and Google product feeds
 
-[![Test](https://github.com/sokil/php-merchant-product-feed/workflows/Test/badge.svg?branch=master)](https://github.com/sokil/php-merchant-product-feed/actions?query=workflow%3ATest)
+[![Test](https://github.com/sokil/php-merchant-product-feed/workflows/Test/badge.svg?branch=main)](https://github.com/sokil/php-merchant-product-feed/actions?query=workflow%3ATest)
 [![Latest Stable Version](https://poser.pugx.org/sokil/php-merchant-product-feed/v/stable.png)](https://packagist.org/packages/sokil/php-merchant-product-feed)
-[![Coverage Status](https://coveralls.io/repos/sokil/php-merchant-product-feed/badge.png)](https://coveralls.io/r/sokil/php-merchant-product-feed)
+[![Coverage Status](https://coveralls.io/repos/sokil/php-merchant-product-feed/badge.png?1)](https://coveralls.io/r/sokil/php-merchant-product-feed)
 [![Total Downloads](http://img.shields.io/packagist/dt/sokil/php-merchant-product-feed.svg?1)](https://packagist.org/packages/sokil/php-merchant-product-feed)
 [![Daily Downloads](https://poser.pugx.org/sokil/php-merchant-product-feed/d/daily)](https://packagist.org/packages/sokil/php-merchant-product-feed/stats)
 
