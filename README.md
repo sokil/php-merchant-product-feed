@@ -14,6 +14,7 @@ Builder of Facebook and Google product feeds
 
 * [Marketing API / Product catalog ](https://developers.facebook.com/docs/marketing-api/catalog)
 * [Commence platform / Catalog and Inventory](https://developers.facebook.com/docs/commerce-platform/catalog)
+* [Feed Update API](https://developers.facebook.com/docs/marketing-api/catalog/guides/feed-api)
 
 ## Google
 
