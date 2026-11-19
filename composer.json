@@ -1,6 +1,6 @@
 {
     "name": "performing/product-feed-builder",
-    "description": "Builder of Facebook and Google product feeds",
+    "description": "Builder of Google, Facebook and OpenAI product feeds",
     "type": "library",
     "require": {
         "php": ">=8.2"
